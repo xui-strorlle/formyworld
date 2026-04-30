@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Special+Elite&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+}
+
+.dots-bg {
+    position: fixed;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(#ccc 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    z-index: -1;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- THE PAPER --- */
+.page {
+    background-color: #fffcf2; /* Warm paper color */
+    color: #333;
+    border: solid 1px #e8e8e8;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.02);
+}
+
+/* The Spine Shadow - Makes it look like a real book */
+.page.--left {
+    border-right: 0;
+    box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.1);
+}
+.page.--right {
+    border-left: 0;
+    box-shadow: inset 7px 0 30px -7px rgba(0, 0, 0, 0.1);
+}
+
+/* Hard Covers */
+.page-cover {
+    background-color: #f4e8d1;
+    border: solid 2px #d0bfa3;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.center-content {
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- 4 PICTURE GRID --- */
+.grid-4-pics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    height: 70%;
+    margin-top: 20px;
+}
+
+.polaroid-mini {
+    background: white;
+    padding: 8px 8px 25px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.polaroid-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+/* --- LARGE PICTURE --- */
+.polaroid-large {
+    background: white;
+    padding: 15px 15px 45px 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.polaroid-large img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.tilt-left { transform: rotate(-2deg); }
+.tilt-right { transform: rotate(2deg); }
+
+/* --- TYPOGRAPHY --- */
+.page-header {
+    text-align: center;
+    font-family: 'Special Elite', serif;
+    font-size: 1.5rem;
+    color: #888;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.handwritten {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: #2c3e50;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 80px);
+    text-align: center;
+    font-family: monospace;
+    color: #999;
+}
+
+/* --- MAGAZINE TITLE --- */
+.magazine-title {
+    padding: 80px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.letter {
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 4rem;
+    font-weight: bold;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+.c1 { background: #1a1a1a; color: white; transform: rotate(-4deg); font-family: 'Special Elite', serif; }
+.c2 { background: #d9534f; color: white; transform: rotate(3deg); font-family: serif; }
+.c3 { background: #f9f9f9; color: #222; transform: rotate(-2deg); border: 2px solid #1a1a1a; }
+.c4 { background: #f0ad4e; color: #1a1a1a; transform: rotate(5deg); font-family: sans-serif; text-transform: lowercase; }
+
+/* --- MUSIC --- */
+.music-box {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255,255,255,0.9);
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+#playBtn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: 'Special Elite', serif;
+    color: #1a1a1a;
+}
+
+/* --- 2 PICTURE STACKED GRID --- */
+.grid-2-pics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+:root {
+    /* UPSCALED FOR MAXIMUM IMPACT */
+    --book-width: 600px;  /* Increased from 450 */
+    --book-height: 800px; /* Increased from 600 */
+    --paper-color: #fffcf2;
+}
+
+/* This container ensures the book has room to breathe */
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95vw;
+    height: 95vh;
+}
+
+#book {
+    /* The library will use these as base units */
+    box-shadow: 0 0 50px rgba(0,0,0,0.2);
+}
+
+.page-content {
+    padding: 60px; /* More padding makes it look professional and expensive */
+}
+
+.handwritten {
+    font-size: 2.8rem; /* Bigger text to fill the bigger pages */
+}
+
+.polaroid-large img {
+    height: 450px; /* Much bigger photos */
+}
