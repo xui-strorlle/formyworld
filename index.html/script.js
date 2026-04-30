@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Initialize the St.PageFlip physics engine
+    // Check if user is on mobile
+    const isMobile = window.innerWidth < 600;
+
     const pageFlip = new St.PageFlip(document.getElementById('book'), {
-        width: 450,           // Base page width
-        height: 600,          // Base page height
-        size: "fixed",        // Keeps it crisp and prevents layout shifting
-        minWidth: 315,
-        maxWidth: 1000,
-        minHeight: 420,
-        maxHeight: 1350,
-        maxShadowOpacity: 0.3, // The shadow cast by the bending paper
-        showCover: true,       // Tells it that the first/last pages are hard covers
-        mobileScrollSupport: false,
-        usePortrait: false     // Forces two-page spread like a real book
+        width: isMobile ? 300 : 600,   // If phone, use 300. If laptop, 600.
+        height: isMobile ? 450 : 800,  // If phone, use 450. If laptop, 800.
+        size: "stretch",
+        minWidth: 250,
+        maxWidth: 1200,
+        minHeight: 400,
+        maxHeight: 1600,
+        maxShadowOpacity: 0.4,
+        showCover: true,
+        mobileScrollSupport: true,     // Turn this on for her phone!
+        usePortrait: isMobile          // Shows 1 page at a time on phones
     });
 
+    pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+    
+    // ... keep the music code below ...
+});
     // Load the pages from our HTML elements
     pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
