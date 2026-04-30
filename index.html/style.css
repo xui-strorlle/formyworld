@@ -218,3 +218,35 @@ body {
 .polaroid-large img {
     height: 450px; /* Much bigger photos */
 }
+
+/* MOBILE FIX: Scales the book down for phones */
+@media (max-width: 600px) {
+    :root {
+        /* This makes the book small enough for a phone screen */
+        --book-width: 90vw; 
+        --book-height: 70vh;
+    }
+
+    .handwritten {
+        font-size: 1.4rem; /* Shrinks text so it doesn't overflow */
+    }
+
+    .magazine-title .letter {
+        font-size: 2rem; /* Shrinks cover letters */
+        padding: 8px 12px;
+    }
+
+    .page-content {
+        padding: 20px; /* Less padding gives more room for pics */
+    }
+
+    .polaroid-large img {
+        height: 250px; /* Shorter images for mobile */
+    }
+
+    .music-box {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+}
